@@ -3,7 +3,7 @@
 
 @custom-variant dark (&:is(.dark *));
 
-::root {
+:root {
   /* Updated to Apple-inspired B2B SaaS color palette */
   --background: #f8fafc; /* Light gray for overall background */
   --foreground: #374151; /* Dark gray for primary text */
