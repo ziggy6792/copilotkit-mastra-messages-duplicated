@@ -15,9 +15,16 @@ export const POST = async (req: NextRequest) => {
 
   // 3. Create the CopilotRuntime instance and utilize the Mastra AG-UI
   //    integration to get the remote agents. Cache this for performance.
-  const runtime = new CopilotRuntime({
-    agents: MastraAgent.getLocalAgents({ mastra }),
-  });
+  const agents = MastraAgent.getLocalAgents({ mastra });
+  try {
+    // Debug: list available agents at runtime startup
+    // This helps diagnose "agent not found" issues due to stale server or import failures
+    // Will print, for example: [ 'sample_agent' ]
+    // Remove if too chatty once confirmed working
+    // eslint-disable-next-line no-console
+    console.log("[CopilotKit] Available agents:", Object.keys(agents || {}));
+  } catch {}
+  const runtime = new CopilotRuntime({ agents });
 
   const { handleRequest } = copilotRuntimeNextJSAppRouterEndpoint({
     runtime,
