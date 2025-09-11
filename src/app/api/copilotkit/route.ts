@@ -6,11 +6,6 @@ import {
 import { MastraAgent } from "@ag-ui/mastra"
 import { NextRequest } from "next/server";
 import { mastra } from "@/mastra";
- 
-// Ensure Node.js runtime and disable static optimization for streaming
-export const runtime = "nodejs";
-export const dynamic = "force-dynamic";
-export const revalidate = 0;
 
 // 1. You can use any service adapter here for multi-agent support.
 const serviceAdapter = new ExperimentalEmptyAdapter();
