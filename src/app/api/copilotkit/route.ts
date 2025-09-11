@@ -7,6 +7,11 @@ import { MastraAgent } from "@ag-ui/mastra"
 import { NextRequest } from "next/server";
 import { mastra } from "@/mastra";
  
+// Ensure Node.js runtime and disable static optimization for streaming
+export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 // 1. You can use any service adapter here for multi-agent support.
 const serviceAdapter = new ExperimentalEmptyAdapter();
 
@@ -21,7 +26,6 @@ export const POST = async (req: NextRequest) => {
     // This helps diagnose "agent not found" issues due to stale server or import failures
     // Will print, for example: [ 'sample_agent' ]
     // Remove if too chatty once confirmed working
-    // eslint-disable-next-line no-console
     console.log("[CopilotKit] Available agents:", Object.keys(agents || {}));
   } catch {}
   const runtime = new CopilotRuntime({ agents });

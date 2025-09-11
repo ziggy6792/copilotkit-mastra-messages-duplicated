@@ -1,13 +1,20 @@
 import { openai } from "@ai-sdk/openai";
 import { Agent } from "@mastra/core/agent";
-import { LibSQLStore } from "@mastra/libsql";
 import { z } from "zod";
 import { Memory } from "@mastra/memory";
 import { completePlan, setPlan, updatePlanProgress } from "@/mastra/tools";
 
 // Canvas Agent working memory schema mirrors the front-end AgentState
 export const AgentState = z.object({
-  items: z.array(z.any()).default([]),
+  // Avoid z.any() to ensure valid JSON schema for OpenAI tools
+  // Use a permissive object so the array has a defined 'items' schema
+  items: z
+    .array(
+      z
+        .object({ id: z.string().optional() })
+        .passthrough()
+    )
+    .default([]),
   globalTitle: z.string().default(""),
   globalDescription: z.string().default(""),
   lastAction: z.string().default(""),
@@ -23,11 +30,11 @@ export const AgentState = z.object({
 
 export const canvasAgent = new Agent({
   name: "sample_agent",
+  description: "Canvas agent powering CopilotKit AG-UI interactions.",
   tools: { setPlan, updatePlanProgress, completePlan },
-  model: openai("gpt-4o"),
+  model: openai("gpt-4o-mini"),
   instructions: "You are a helpful assistant managing a canvas of items. Prefer shared state over chat history.",
   memory: new Memory({
-    storage: new LibSQLStore({ url: "file::memory:" }),
     options: {
       workingMemory: {
         enabled: true,
