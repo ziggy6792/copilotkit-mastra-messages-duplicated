@@ -111,7 +111,7 @@ graph TB
     end
     
     subgraph "Integrated Backend"
-        Runtime[CopilotKit Runtime<br/>api/copilotkit/route.ts]
+            Runtime[CopilotKit Runtime<br/>src/app/api/copilotkit/route.ts]
         Agent[Mastra Agent<br/>src/mastra/agents/index.ts]
         Tools[TypeScript Tools<br/>- setPlan<br/>- updatePlanProgress<br/>- completePlan]
         Schema[Zod Schema<br/>AgentState]
@@ -130,10 +130,15 @@ graph TB
     style UI fill:#e1f5fe
     style Agent fill:#fff3e0
     style Runtime fill:#f3e5f5
+    
+    click UI "https://github.com/CopilotKit/canvas-with-mastra/blob/main/src/app/page.tsx"
+    click Runtime "https://github.com/CopilotKit/canvas-with-mastra/blob/main/src/app/api/copilotkit/route.ts"
+    click Agent "https://github.com/CopilotKit/canvas-with-mastra/blob/main/src/mastra/agents/index.ts"
+    click Tools "https://github.com/CopilotKit/canvas-with-mastra/blob/main/src/mastra/tools/index.ts"
 ```
 
 ### Frontend (Next.js + CopilotKit)
-The main UI component is in `src/app/page.tsx`. It includes:
+The main UI component is in [`src/app/page.tsx`](https://github.com/CopilotKit/canvas-with-mastra/blob/main/src/app/page.tsx). It includes:
 - **Canvas Management**: Visual grid of cards with create, read, update, delete operations
 - **State Synchronization**: Uses `useCoAgent` hook for real-time state sync with the agent
 - **Frontend Actions**: Exposed as tools to the AI agent via `useCopilotAction`
@@ -141,7 +146,7 @@ The main UI component is in `src/app/page.tsx`. It includes:
 - **HITL Interrupts**: Uses `useLangGraphInterrupt` for disambiguation prompts
 
 ### Backend (Mastra Agent)
-The agent logic is in `src/mastra/agents/index.ts`. It features:
+The agent logic is in [`src/mastra/agents/index.ts`](https://github.com/CopilotKit/canvas-with-mastra/blob/main/src/mastra/agents/index.ts). It features:
 - **State Management**: Zod schema matching the frontend `AgentState`
 - **Memory Configuration**: Disabled working memory to prevent stale cached state
 - **Tool Integration**: Planning tools (setPlan, updatePlanProgress, completePlan)
@@ -182,25 +187,25 @@ sequenceDiagram
 ## Customization Guide
 
 ### Adding New Card Types
-1. Define the data schema in `src/lib/canvas/types.ts`
+1. Define the data schema in [`src/lib/canvas/types.ts`](https://github.com/CopilotKit/canvas-with-mastra/blob/main/src/lib/canvas/types.ts)
 2. Add the card type to the `CardType` union
-3. Create rendering logic in `src/components/canvas/CardRenderer.tsx`
-4. Update the agent's instructions in `src/mastra/agents/index.ts`
-5. Add corresponding frontend actions in `src/app/page.tsx`
+3. Create rendering logic in [`src/components/canvas/CardRenderer.tsx`](https://github.com/CopilotKit/canvas-with-mastra/blob/main/src/components/canvas/CardRenderer.tsx)
+4. Update the agent's instructions in [`src/mastra/agents/index.ts`](https://github.com/CopilotKit/canvas-with-mastra/blob/main/src/mastra/agents/index.ts)
+5. Add corresponding frontend actions in [`src/app/page.tsx`](https://github.com/CopilotKit/canvas-with-mastra/blob/main/src/app/page.tsx)
 
 ### Modifying Existing Cards
 - Field definitions are in the agent's instructions
-- UI components are in `CardRenderer.tsx`
+- UI components are in [`CardRenderer.tsx`](https://github.com/CopilotKit/canvas-with-mastra/blob/main/src/components/canvas/CardRenderer.tsx)
 - Frontend actions follow the pattern: `set[Type]Field[Number]`
 
 ### Configuring the Agent
-- Agent definition: `src/mastra/agents/index.ts`
-- Tools: `src/mastra/tools/index.ts`
+- Agent definition: [`src/mastra/agents/index.ts`](https://github.com/CopilotKit/canvas-with-mastra/blob/main/src/mastra/agents/index.ts)
+- Tools: [`src/mastra/tools/index.ts`](https://github.com/CopilotKit/canvas-with-mastra/blob/main/src/mastra/tools/index.ts)
 - Memory settings can be adjusted in the agent configuration
 - Model can be changed by updating the `model` property
 
 ### Styling
-- Global styles: `src/app/globals.css`
+- Global styles: [`src/app/globals.css`](https://github.com/CopilotKit/canvas-with-mastra/blob/main/src/app/globals.css)
 - Component styles use Tailwind CSS with shadcn/ui components
 - Theme colors can be modified via CSS custom properties
 
@@ -215,7 +220,7 @@ sequenceDiagram
 ### Agent Connection Issues
 If you see "I'm having trouble connecting to my tools", make sure:
 1. Your OpenAI API key is set correctly in `.env`
-2. The agent is properly registered in `src/mastra/index.ts`
+2. The agent is properly registered in [`src/mastra/index.ts`](https://github.com/CopilotKit/canvas-with-mastra/blob/main/src/mastra/index.ts)
 3. The server started successfully (check terminal output)
 
 ### State Synchronization Issues
@@ -232,8 +237,8 @@ npm run dev:debug
 This sets `LOG_LEVEL=debug` for more verbose output from Mastra.
 
 ### Common Issues
-- **"Agent not found"**: Check that 'sample_agent' is registered in `src/mastra/index.ts`
-- **Tool execution errors**: Ensure tool schemas in `src/mastra/tools/index.ts` match frontend expectations
+- **"Agent not found"**: Check that 'sample_agent' is registered in [`src/mastra/index.ts`](https://github.com/CopilotKit/canvas-with-mastra/blob/main/src/mastra/index.ts)
+- **Tool execution errors**: Ensure tool schemas in [`src/mastra/tools/index.ts`](https://github.com/CopilotKit/canvas-with-mastra/blob/main/src/mastra/tools/index.ts) match frontend expectations
 - **TypeScript errors**: Run `npm run build` to check for type issues
 
 ## Contributing
