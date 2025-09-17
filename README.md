@@ -4,7 +4,9 @@ This is a starter template for building AI-powered canvas applications using [Ma
 
 https://github.com/user-attachments/assets/2a4ec718-b83b-4968-9cbe-7c1fe082e958
 
-## 🔑 Key Features
+
+
+## ✨ Key Features
 
 - **Visual Canvas Interface**: Drag-free canvas displaying cards in a responsive grid layout
 - **Four Card Types**: 
@@ -16,10 +18,11 @@ https://github.com/user-attachments/assets/2a4ec718-b83b-4968-9cbe-7c1fe082e958
 - **Multi-step Planning**: AI can create and execute plans with visual progress tracking
 - **Human-in-the-Loop (HITL)**: Intelligent interrupts for clarification when needed
 - **JSON View**: Toggle between visual canvas and raw JSON state
-- **Responsive Design**: Optimized for both desktop (sidebar chat) and mobile (popup chat)
+- **Responsive Design**: Optimized for both desktop (sidebar chat) and mobile (pop-up chat)
 - **Mastra Integration**: Built on Mastra's powerful agent framework with memory management
 
-## ⚙️ Prerequisites
+
+## 📌 Prerequisites
 
 - Node.js 18+ 
 - Any of the following package managers:
@@ -28,13 +31,13 @@ https://github.com/user-attachments/assets/2a4ec718-b83b-4968-9cbe-7c1fe082e958
   - yarn
   - bun
 
-> **Note:** This repository ignores lock files (package-lock.json, yarn.lock, pnpm-lock.yaml, bun.lockb) to avoid conflicts between different package managers. Each developer should generate their own lock file using their preferred package manager. After that, make sure to delete it from the .gitignore.
+> **Note:** This repository ignores lock files (package-lock.json, yarn.lock, pnpm-lock.yaml, bun.lock) to avoid conflicts between different package managers. Each developer should generate their own lock file using their preferred package manager. After that, make sure to delete it from the .gitignore.
 
 ## ✈️ Getting Started
 
 1. Add your OpenAI API key
 ```bash
-# you can use whatever model Mastra supports
+# You can use whatever model Mastra supports
 echo "OPENAI_API_KEY=your-key-here" >> .env
 ```
 
