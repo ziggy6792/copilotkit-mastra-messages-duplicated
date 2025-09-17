@@ -4,7 +4,7 @@ This is a starter template for building AI-powered canvas applications using [Ma
 
 https://github.com/user-attachments/assets/2a4ec718-b83b-4968-9cbe-7c1fe082e958
 
-## Key Features
+## 🔑 Key Features
 
 - **Visual Canvas Interface**: Drag-free canvas displaying cards in a responsive grid layout
 - **Four Card Types**: 
@@ -19,7 +19,7 @@ https://github.com/user-attachments/assets/2a4ec718-b83b-4968-9cbe-7c1fe082e958
 - **Responsive Design**: Optimized for both desktop (sidebar chat) and mobile (popup chat)
 - **Mastra Integration**: Built on Mastra's powerful agent framework with memory management
 
-## Prerequisites
+## ⚙️ Prerequisites
 
 - Node.js 18+ 
 - Any of the following package managers:
@@ -30,7 +30,7 @@ https://github.com/user-attachments/assets/2a4ec718-b83b-4968-9cbe-7c1fe082e958
 
 > **Note:** This repository ignores lock files (package-lock.json, yarn.lock, pnpm-lock.yaml, bun.lockb) to avoid conflicts between different package managers. Each developer should generate their own lock file using their preferred package manager. After that, make sure to delete it from the .gitignore.
 
-## Getting Started
+## ✈️ Getting Started
 
 1. Add your OpenAI API key
 ```bash
@@ -70,7 +70,7 @@ bun run dev
 
 This will start both the UI and agent servers concurrently.
 
-## Getting Started with the Canvas
+## 🖼️ Getting Started with the Canvas
 
 Once the application is running, you can:
 
@@ -99,7 +99,7 @@ The following scripts can also be run using your preferred package manager:
 - `start` - Starts the production server
 - `lint` - Runs ESLint for code linting
 
-## Architecture Overview
+## 🏛️ Architecture Overview
 
 ```mermaid
 graph TB
@@ -184,7 +184,7 @@ sequenceDiagram
     Note over UI,MA: Single process architecture
 ```
 
-## Customization Guide
+## 📚 Customization Guide
 
 ### Adding New Card Types
 1. Define the data schema in [`src/lib/canvas/types.ts`](https://github.com/CopilotKit/canvas-with-mastra/blob/main/src/lib/canvas/types.ts)
