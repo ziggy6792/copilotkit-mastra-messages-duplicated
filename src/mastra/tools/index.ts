@@ -1,9 +1,6 @@
 import { createTool } from '@mastra/core/tools';
 import { z } from 'zod';
 
-// (Weather tooling removed for canvas template)
-
-// Plan tools (IDs match those used in the LangGraph template)
 export const setPlan = createTool({
   id: 'set_plan',
   description: 'Initialize a plan consisting of step descriptions. Resets progress and sets status to in_progress.',
