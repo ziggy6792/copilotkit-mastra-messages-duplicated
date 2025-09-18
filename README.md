@@ -5,7 +5,7 @@ This is a starter template for building AI-powered canvas applications using [Ma
 
 [![Watch the video](https://img.youtube.com/vi/SyAVurXABYg/0.jpg)](https://www.youtube.com/watch?v=SyAVurXABYg)
 
-
+Watch the walkthrough video, click the image ⬆️
 
 ## ✨ Key Features
 
