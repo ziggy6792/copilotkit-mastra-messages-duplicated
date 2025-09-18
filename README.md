@@ -2,8 +2,11 @@
 
 This is a starter template for building AI-powered canvas applications using [Mastra](https://mastra.ai) and [CopilotKit](https://copilotkit.ai). It provides a modern Next.js application with an integrated Mastra agent that manages a visual canvas of interactive cards with real-time AI synchronization.
 
+<a href="https://www.youtube.com/watch?v=SyAVurXABYg" target="_blank">
+  
+  [![Watch the video](https://img.youtube.com/vi/SyAVurXABYg/0.jpg)](https://www.youtube.com/watch?v=SyAVurXABYg)
+</a>
 
-[![Watch the video](https://img.youtube.com/vi/SyAVurXABYg/0.jpg)](https://www.youtube.com/watch?v=SyAVurXABYg)
 
 Watch the walkthrough video, click the image ⬆️
 
